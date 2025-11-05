@@ -19,3 +19,89 @@
 body {
 	font-family: var(--font-sans), serif;
 }
+
+
+body {
+  background: #f4f6f9;
+  font-family: "Inter", sans-serif;
+  color: var(--color-black);
+}
+
+.tarot-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  justify-items: center;
+}
+
+.tarot-card {
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarot-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tarot-card img {
+  width: 160px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.tarot-card h3 {
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ===== RESULT BOX ===== */
+.tarot-result {
+  display: none;
+  text-align: center;
+  max-width: 600px;
+  margin: 100px auto;
+  background: var(--color-white);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  line-height: 1.8;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.tarot-result.show {
+  display: block;
+}
+
+#tarotText {
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+#backBtn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+#backBtn:hover {
+  background: var(--color-secondary);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

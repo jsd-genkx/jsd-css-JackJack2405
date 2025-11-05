@@ -1,21 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<link
-			rel="stylesheet"
-			href="reset.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="style.css"
-		/>
-		<title>CSS</title>
-	</head>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tarot Card Reading</title>
+  </head>
 
-	<body></body>
+  <body>
+    <main class="tarot-container">
+      <!-- การ์ดแต่ละใบ -->
+      <article class="tarot-card" data-meaning="Queen of Pentacles: อย่าหลงวัตถุจนละเลยคนรอบข้างของคุณไป เพราะจะส่งปัญหาได้ในภายหลัง ส่วนการลงทุนหยิบจับอะไรดูจะเป็นวันที่ดี ๆ ของคุณจริง ๆ วันนี้คุณอาจได้เกี่ยวข้องกับผู้หญิงร่ำรวย เก่งกาจ เกื้อกูลคุณในเรื่องงานที่รับผิดชอบอยู่ แต่ควรแสดงให้เธอเห็นถึงความอุตสาหะนะ">
+        <img src="Queen-of-Pentacles.png" alt="Queen of Pentacles" />
+        <h3>Queen of Pentacles</h3>
+      </article>
+
+      <article class="tarot-card" data-meaning="Page of Cups: คุณอาจได้รับข่าวดีทางด้านความรู้สึกหรือมีคนเข้ามาแสดงความสนใจในตัวคุณ เป็นช่วงเวลาที่หัวใจเปิดกว้างและพร้อมจะเริ่มต้นสิ่งใหม่">
+        <img src="Page-of-Cups.png" alt="Page of Cups" />
+        <h3>Page of Cups</h3>
+      </article>
+
+      <article class="tarot-card" data-meaning="Page of Swords: คุณมีความอยากรู้อยากเห็นและพลังในการเรียนรู้สิ่งใหม่ ๆ แต่อย่าด่วนตัดสินหรือพูดโดยไม่คิดให้ดี เพราะอาจสร้างปัญหาตามมาได้">
+        <img src="Page-of-Swords.png" alt="Page of Swords" />
+        <h3>Page of Swords</h3>
+      </article>
+
+      <article class="tarot-card" data-meaning="Ten of Wands: คุณกำลังรับภาระมากเกินไป ควรเรียนรู้ที่จะขอความช่วยเหลือจากผู้อื่นและแบ่งเบาความรับผิดชอบ อย่าปล่อยให้ตัวเองเหนื่อยล้าจนหมดแรงใจ">
+        <img src="Wands-ten.png" alt="Ten of Wands" />
+        <h3>Ten of Wands</h3>
+      </article>
+    </main>
+
+    <div class="tarot-result" id="tarotResult">
+      <p id="tarotText"></p>
+      <button id="backBtn">‹ กลับไปดูการ์ด</button>
+    </div>
+
+    <script>
+      const cards = document.querySelectorAll(".tarot-card");
+      const resultBox = document.getElementById("tarotResult");
+      const tarotText = document.getElementById("tarotText");
+      const backBtn = document.getElementById("backBtn");
+      const container = document.querySelector(".tarot-container");
+
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          // ซ่อนทุกการ์ด
+          container.style.display = "none";
+          // แสดงผลลัพธ์
+          tarotText.textContent = card.dataset.meaning;
+          resultBox.classList.add("show");
+        });
+      });
+
+      backBtn.addEventListener("click", () => {
+        resultBox.classList.remove("show");
+        container.style.display = "grid";
+      });
+    </script>
+  </body>
 </html>
